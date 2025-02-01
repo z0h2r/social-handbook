@@ -493,14 +493,11 @@ const SocialHandbook: React.FC = () => {
 
   return (
     <div className={`handbook-container ${isDarkMode ? 'dark-mode' : ''}`}>
-      <ThemeToggle />
-      <LanguageToggle />
-      <div className="positive-banner" dir={language === 'he' ? 'rtl' : 'ltr'}>
-        <span className="banner-text">{bannerMessage}</span>
-      </div>
-      <div className="sunflower-decoration left"></div>
-      <div className="sunflower-decoration right"></div>
       <div className="content">
+        <div className="toggle-container">
+          <ThemeToggle />
+          <LanguageToggle />
+        </div>
         <h1>{language === 'en' ? 'Social Skills Handbook' : 'מדריך כישורים חברתיים'}</h1>
         <p className="subtitle">
           {language === 'en' 
