@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/social-handbook/static/css/main.053c7411.css",
-    "main.js": "/social-handbook/static/js/main.b0d023a7.js",
+    "main.css": "/social-handbook/static/css/main.57e2f722.css",
+    "main.js": "/social-handbook/static/js/main.30f37034.js",
     "static/media/sunflower.png": "/social-handbook/static/media/sunflower.68f8d32d26b06639ba8d.png",
     "index.html": "/social-handbook/index.html",
-    "main.053c7411.css.map": "/social-handbook/static/css/main.053c7411.css.map",
-    "main.b0d023a7.js.map": "/social-handbook/static/js/main.b0d023a7.js.map"
+    "main.57e2f722.css.map": "/social-handbook/static/css/main.57e2f722.css.map",
+    "main.30f37034.js.map": "/social-handbook/static/js/main.30f37034.js.map"
   },
   "entrypoints": [
-    "static/css/main.053c7411.css",
-    "static/js/main.b0d023a7.js"
+    "static/css/main.57e2f722.css",
+    "static/js/main.30f37034.js"
   ]
 }
