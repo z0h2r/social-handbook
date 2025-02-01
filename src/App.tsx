@@ -4,18 +4,21 @@ import './App.css';
 import SocialHandbook from './components/SocialHandbook';
 import TipDetail from './components/TipDetail';
 import { ThemeProvider } from './context/ThemeContext';
+import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   return (
     <ThemeProvider>
-      <Router>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<SocialHandbook />} />
-            <Route path="/tip/:id" element={<TipDetail />} />
-          </Routes>
-        </div>
-      </Router>
+      <LanguageProvider>
+        <Router basename={process.env.PUBLIC_URL}>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<SocialHandbook />} />
+              <Route path="/tip/:id" element={<TipDetail />} />
+            </Routes>
+          </div>
+        </Router>
+      </LanguageProvider>
     </ThemeProvider>
   );
 }
