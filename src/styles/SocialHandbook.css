@@ -1,0 +1,289 @@
+.handbook-container {
+  min-height: 100vh;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+              linear-gradient(45deg, #ffd700, #ffa500);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+.handbook-container.dark-mode {
+  background: linear-gradient(rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.97)),
+              linear-gradient(45deg, #ffd700, #ffa500);
+}
+
+.sunflower-decoration {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background-image: url('../../public/sunflower.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.sunflower-decoration.left {
+  left: -100px;
+  top: -50px;
+  transform: rotate(-45deg);
+}
+
+.sunflower-decoration.right {
+  right: -100px;
+  bottom: -50px;
+  transform: rotate(135deg);
+}
+
+.dark-mode .sunflower-decoration {
+  opacity: 0.25;
+  filter: brightness(1.5) contrast(1.2) sepia(0.3);
+  mix-blend-mode: lighten;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+.tips-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.tip-card {
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+.dark-mode .tip-card {
+  background: rgba(30, 41, 59, 0.95);
+}
+
+.tip-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tip-card h3 {
+  color: #e67e22;
+  margin-bottom: 1rem;
+}
+
+.dark-mode .tip-card h3 {
+  color: #fdcb6e;
+}
+
+.tip-card p {
+  color: #34495e;
+  line-height: 1.6;
+}
+
+.dark-mode .tip-card p {
+  color: #e2e8f0;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #e67e22;
+  font-weight: 500;
+}
+
+.dark-mode .read-more {
+  color: #fdcb6e;
+}
+
+.tip-card-content[dir="rtl"] {
+  text-align: right;
+}
+
+.tip-card-content[dir="rtl"] .read-more {
+  direction: rtl;
+}
+
+@media (max-width: 768px) {
+  .handbook-container {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .tips-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.tag {
+  background: #ffeaa7;
+  color: #d35400;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dark-mode .tag {
+  background: #2d3748;
+  color: #fdcb6e;
+}
+
+.tag:hover {
+  background: #fdcb6e;
+  transform: translateY(-1px);
+}
+
+.dark-mode .tag:hover {
+  background: #4a5568;
+}
+
+.tag-selected {
+  background: #fdcb6e;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tag-clear {
+  font-size: 1.2em;
+  line-height: 1;
+  margin-left: 0.3rem;
+}
+
+.tip-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tip-card-content .tag {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+}
+
+/* RTL support for tags */
+[dir="rtl"] .tip-tags {
+  direction: rtl;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.positive-banner {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.8rem 1.2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transform: rotate(-5deg);
+  z-index: 10;
+  animation: float 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.dark-mode .positive-banner {
+  background: rgba(30, 41, 59, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.banner-emoji {
+  font-size: 1.5rem;
+}
+
+.banner-text {
+  color: #e67e22;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.dark-mode .banner-text {
+  color: #fdcb6e;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: rotate(-5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-5deg) translateY(-5px);
+  }
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .positive-banner {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .banner-emoji {
+    font-size: 1.2rem;
+  }
+}
+
+/* Make the title brighter in dark mode */
+.dark-mode h1 {
+  color: #fdcb6e;
+}
+
+.dark-mode .subtitle {
+  color: #e2e8f0;
+} 

@@ -1,0 +1,251 @@
+.tip-detail-container {
+  min-height: 100vh;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+              linear-gradient(45deg, #ffd700, #ffa500);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tip-detail-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+  font-family: 'Merriweather', Georgia, serif;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.tip-detail-content h1 {
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.tip-detail-content h2 {
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #34495e;
+  margin: 2rem 0 1rem;
+  border-bottom: 2px solid #ffeaa7;
+  padding-bottom: 0.5rem;
+}
+
+.tip-detail-content p {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  padding: 0 0.5rem;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: #e67e22;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.tip-section {
+  margin-bottom: 3rem;
+}
+
+.tip-section p {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+.tip-image {
+  width: 100%;
+  border-radius: 10px;
+  margin: 2rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tip-image-caption {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.overview-section {
+  font-size: 1.2rem;
+  color: #34495e;
+  background: #ffeaa711;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #fdcb6e;
+  margin: 2rem 0;
+}
+
+.key-points {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  list-style: none;
+}
+
+.key-point-item {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.key-point-item::before {
+  content: "🌻";
+  position: absolute;
+  left: 0;
+  margin-right: 1rem;
+}
+
+.code-section {
+  margin: 2rem 0;
+}
+
+.code-section h2 {
+  margin-bottom: 1.5rem;
+}
+
+.code-section pre {
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.tip-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 2rem 0;
+  justify-content: center;
+}
+
+.tip-detail-tags .tag {
+  background: #ffeaa7;
+  color: #d35400;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+/* RTL Support */
+[dir="rtl"] .tip-detail-content {
+  text-align: right;
+}
+
+[dir="rtl"] .back-button {
+  text-align: right;
+}
+
+[dir="rtl"] .key-point-item {
+  padding-left: 0;
+  padding-right: 2rem;
+}
+
+[dir="rtl"] .key-point-item::before {
+  left: auto;
+  right: 0;
+}
+
+/* Add these styles */
+.code-section {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tip-detail-content {
+    padding: 2rem;
+    font-size: 1rem;
+  }
+
+  .tip-detail-content h1 {
+    font-size: 2rem;
+  }
+
+  .tip-detail-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Add dark mode styles */
+.dark-mode .tip-detail-content {
+  background: rgba(30, 41, 59, 0.95);
+  color: #e2e8f0;
+}
+
+.dark-mode .tip-detail-content h1 {
+  color: #fdcb6e;
+}
+
+.dark-mode .tip-detail-content h2 {
+  color: #fdcb6e;
+  border-bottom-color: #4a5568;
+}
+
+.dark-mode .tip-detail-content p {
+  color: #e2e8f0;
+}
+
+.dark-mode .overview-section {
+  background: rgba(45, 55, 72, 0.5);
+  border-left-color: #fdcb6e;
+  color: #e2e8f0;
+}
+
+.dark-mode .key-points {
+  background: rgba(45, 55, 72, 0.5);
+}
+
+.dark-mode .back-button {
+  color: #fdcb6e;
+}
+
+.dark-mode .tag {
+  background: #2d3748;
+  color: #fdcb6e;
+}
+
+.dark-mode.tip-detail-container {
+  background: linear-gradient(rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.97)),
+              linear-gradient(45deg, #ffd700, #ffa500);
+}
+
+.dark-mode .sunflower-decoration {
+  opacity: 0.1;
+  filter: brightness(0.8) sepia(0.3);
+} 
