@@ -447,27 +447,45 @@ greet("World");`,
   }
 ];
 
-const positiveMessages = [
-  "Every small step matters! 🌱",
-  "You're doing great! ✨",
-  "Growth happens one day at a time 🌻",
-  "Believe in yourself! ��",
-  "Today is full of possibilities 🌈",
-  "Keep growing, keep glowing! ⭐",
-  "You've got this! 💪",
-  "Small progress is still progress 🌺",
-  "Your effort matters! 🌟",
-  "Each day is a new opportunity 🍀"
-];
+const positiveMessages = {
+  en: [
+    "Every small step matters! 🌱",
+    "You're doing great! ✨",
+    "Growth happens one day at a time 🌻",
+    "Believe in yourself! 💫",
+    "Today is full of possibilities 🌈",
+    "Keep growing, keep glowing! ⭐",
+    "You've got this! 💪",
+    "Small progress is still progress 🌺",
+    "Your effort matters! 🌟",
+    "Each day is a new opportunity 🍀"
+  ],
+  he: [
+    "כל צעד קטן חשוב! 🌱",
+    "אתה עושה עבודה נהדרת! ✨",
+    "צמיחה קורית יום אחר יום 🌻",
+    "תאמין בעצמך! 💫",
+    "היום מלא באפשרויות 🌈",
+    "תמשיך לצמוח, תמשיך לזהור! ⭐",
+    "אתה יכול לעשות את זה! 💪",
+    "גם התקדמות קטנה היא התקדמות 🌺",
+    "המאמץ שלך חשוב! 🌟",
+    "כל יום הוא הזדמנות חדשה 🍀"
+  ]
+};
 
 const SocialHandbook: React.FC = () => {
   const { isDarkMode } = useTheme();
   const { language } = useLanguage();
   const [selectedTag, setSelectedTag] = React.useState<string | null>(null);
-  const [bannerMessage] = React.useState(() => 
-    positiveMessages[Math.floor(Math.random() * positiveMessages.length)]
-  );
+  const [bannerMessage, setBannerMessage] = React.useState('');
   const allTags = Array.from(new Set(socialTips.flatMap(tip => tip.tags)));
+
+  React.useEffect(() => {
+    setBannerMessage(
+      positiveMessages[language][Math.floor(Math.random() * positiveMessages[language].length)]
+    );
+  }, [language]);
 
   const filteredTips = selectedTag
     ? socialTips.filter(tip => tip.tags.includes(selectedTag))
@@ -477,7 +495,7 @@ const SocialHandbook: React.FC = () => {
     <div className={`handbook-container ${isDarkMode ? 'dark-mode' : ''}`}>
       <ThemeToggle />
       <LanguageToggle />
-      <div className="positive-banner">
+      <div className="positive-banner" dir={language === 'he' ? 'rtl' : 'ltr'}>
         <span className="banner-text">{bannerMessage}</span>
       </div>
       <div className="sunflower-decoration left"></div>

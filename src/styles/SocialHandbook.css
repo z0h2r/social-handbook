@@ -233,13 +233,52 @@ h1 {
   gap: 0.8rem;
   transform: rotate(-5deg);
   z-index: 10;
-  animation: float 3s ease-in-out infinite;
   transition: all 0.3s ease;
 }
 
-.dark-mode .positive-banner {
-  background: rgba(30, 41, 59, 0.95);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+/* Base animation */
+.positive-banner {
+  animation: float-ltr 3s ease-in-out infinite;
+}
+
+/* RTL support for Hebrew */
+.positive-banner[dir="rtl"] {
+  direction: rtl;
+  transform: rotate(5deg);
+  animation: float-rtl 3s ease-in-out infinite;
+}
+
+@keyframes float-ltr {
+  0%, 100% {
+    transform: rotate(-5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-5deg) translateY(-5px);
+  }
+}
+
+@keyframes float-rtl {
+  0%, 100% {
+    transform: rotate(5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(5deg) translateY(-5px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .positive-banner {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.6rem 1rem;
+  }
+  
+  .positive-banner[dir="rtl"] {
+    /* Remove these lines */
+    /* left: auto; */
+    /* right: 1rem; */
+  }
 }
 
 .banner-emoji {
@@ -254,29 +293,6 @@ h1 {
 
 .dark-mode .banner-text {
   color: #fdcb6e;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: rotate(-5deg) translateY(0);
-  }
-  50% {
-    transform: rotate(-5deg) translateY(-5px);
-  }
-}
-
-/* Responsive adjustment */
-@media (max-width: 768px) {
-  .positive-banner {
-    top: 1rem;
-    left: 1rem;
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-  }
-  
-  .banner-emoji {
-    font-size: 1.2rem;
-  }
 }
 
 /* Make the title brighter in dark mode */
